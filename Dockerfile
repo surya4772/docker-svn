@@ -34,6 +34,7 @@ COPY config/apache-default.conf /etc/apache2/sites-available/000-default.conf
 COPY script/ldap_to_authz.py /ldap_to_authz.py
 COPY script/start.sh /start.sh
 COPY config/website.conf /config/apache/website.conf
+RUN echo "ServerName ldap.example.com" > /etc/apache2/apache2.conf
 # Configure Apache to serve up Subversion
 RUN /usr/sbin/a2enmod auth_digest
 
